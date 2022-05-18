@@ -1,13 +1,13 @@
 const db = require("../database/connection.js");
 
 function get(request, response) {
-    db.query(`SELECT blog_posts.text_content, users.username 
-    FROM blog_posts
-    INNER JOIN users
-    ON users.id = blog_posts.user_id`).then((result) => {
+    db.query(`SELECT users.username, users.age, ice_cream_posts.base_flavour 
+    FROM users
+    INNER JOIN ice_cream_posts
+    ON users.id = ice_cream_posts.user_id`).then((result) => {
         const posts = result.rows;
         console.log(posts);
-        const postList = posts.map((post) => `<li>${post.text_content}, by ${post.username}</li>`).join("");
+        const postList = posts.map((post) => `<li>${post.username} likes ${post.base_flavour}</li>`).join("");
         response.send(`<ul>${postList}</ul>`);
     });
 }
