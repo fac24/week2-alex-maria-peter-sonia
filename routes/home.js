@@ -58,7 +58,7 @@ function get(request, response) {
 
 function post(request, response) {
   const insert_user = /*sql*/ `
-      INSERT INTO users(username, age, base_flavour, fandom) VALUES($1, $2, $3, $4)
+      INSERT INTO users(username, age, base_flavour, fandom) VALUES($1, $2, $3, $4, $5)
     `;
   const values = [
     request.body.username,
