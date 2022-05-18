@@ -1,4 +1,4 @@
-BEGIN 
+BEGIN; 
 
 DROP TABLE IF EXISTS users, ice_cream_posts CASCADE;
 
