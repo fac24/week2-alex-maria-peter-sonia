@@ -1,0 +1,31 @@
+{
+  "name": "week-2-database-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "cypress run",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac24/week2-alex-maria-peter-sonia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac24/week2-alex-maria-peter-sonia/issues"
+  },
+  "homepage": "https://github.com/fac24/week2-alex-maria-peter-sonia#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "cypress": "^9.6.1",
+    "dotenv": "^16.0.1"
+  }
+}
