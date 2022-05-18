@@ -1,3 +1,5 @@
+const db = require('../database/connection.js')
+
 function get(request, response) {
   const form = `
     <form method="POST" action="/add-posts">
@@ -48,6 +50,10 @@ function get(request, response) {
 
   response.send(html);
 }
+
+function post((req, res) => {
+
+})
 
 // exporting for server.js
 module.exports = { get };
