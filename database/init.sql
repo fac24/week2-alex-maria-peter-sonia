@@ -1,4 +1,4 @@
---BEGIN 
+BEGIN 
 
 DROP TABLE IF EXISTS ;
 
@@ -31,4 +31,4 @@ INSERT INTO ice_cream_posts (user_id, base_flavour, topping, comment) VALUES
   (4, 'vanilla', 'none', 'Why are you all talking about ice cream? I came here for the crisps.', )
 ;
 
--- COMMIT;
+COMMIT;
