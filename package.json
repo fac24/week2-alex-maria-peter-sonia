@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cypress run",
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon -r dotenv/config server.js"
   },
   "repository": {
     "type": "git",
