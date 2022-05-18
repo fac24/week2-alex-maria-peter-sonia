@@ -1,6 +1,6 @@
 BEGIN 
 
-DROP TABLE IF EXISTS ;
+DROP TABLE IF EXISTS users, ice_cream_posts CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
