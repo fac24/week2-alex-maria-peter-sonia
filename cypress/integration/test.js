@@ -2,31 +2,16 @@
 //   cy.task("resetDb");
 // });
 
-// describe("list users", () => {
-//   it("displays a list of users", () => {
-//     cy.visit("/");
-//     cy.contains("Sery1976");
-//     cy.contains("Spont1935");
-//   });
-// });
-
-// describe("create users", () => {
-//   it("can create a new user", () => {
-//     cy.visit("/");
-//     cy.contains("New user").click();
-//     cy.url().should("include", "/users/create");
-//     cy.get("input[name='username'").type("oli");
-//     cy.get("input[name='age'").type("12");
-//     cy.get("input[name='location'").type("essex");
-//     cy.get("button[type='submit']").click();
-//     cy.contains("oli");
-//   });
-// });
-
-// describe("delete users", () => {
-//   it("can delete a user", () => {
-//     cy.visit("/");
-//     cy.get("button[aria-label='Delete Sery1976'").click();
-//     cy.contains("Sery1976").should("not.exist");
-//   });
-// });
+  it("can create a new user and display name and age", () => {
+    cy.visit("http://localhost:3000/");
+    cy.get("input[name='username']").type("icefairy");
+    cy.get("input[name='age']").type("45");
+    // cy.get("input[name='base_flavour']").type("bubblegum");
+    // cy.get("input[name='fandom']").select("4"); will change that
+    // cy.get("input[name='topping']").select('Chocolate flake') will cange that
+    cy.get("textarea[name='comment']").type("I hate pringles.");
+    cy.get("button[type='submit']").click();
+    cy.visit("http://localhost:3000/show-posts");
+    cy.contains("icefairy");
+    cy.contains("45");
+  });
