@@ -14,7 +14,7 @@ function get(request, response) {
     })
     .catch((error) => {
         console.error(error.status); 
-        "<h1>Problem loading page</h1>"
+        response.status(500).send("<h1>Problem loading page.</h1>");
     });
 }
 
