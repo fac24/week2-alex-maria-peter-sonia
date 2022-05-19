@@ -29,6 +29,7 @@ h1 {
 }
 
 .yum-yum-ice-cream {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -64,13 +65,13 @@ h1 {
 }
 
 .bubblegum {
-  position: absolute;
+  position: relative;
   width: 10.063rem;
   height: 8.75rem;
   background-color: var(--clr-two);
   border-radius: 100% 100% 0 0;
-  top: 2rem;
-  left: 12.7rem;
+  top: -19rem;
+  left: 0rem;
   margin-top: 2rem;
 }
 
@@ -79,8 +80,8 @@ h1 {
   position: absolute;
   width: 23px;
   border-radius: 20px;
-  box-shadow: 23px 5px #fffcf2, 46px -10px #583101, 69px -5px #fffcf2,
-    92px -5px #583101, 115px 5px #fffcf2, 138px 5px #583101;
+  box-shadow: 23px 5px #fffcf2, 46px -10px #3d426b, 69px -5px #fffcf2,
+    92px -5px #3d426b, 115px 5px #fffcf2, 138px 5px #3d426b;
 }
 
 .bubblegum:after {
