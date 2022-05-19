@@ -7,7 +7,6 @@ set -e
 # e.g. ./scripts/create_db test => DB_NAME='test' (defaults to "example")
 DB_NAME=${1:-example}
 
-
 psql -q -c "CREATE USER ${DB_NAME}user SUPERUSER PASSWORD 'pass123'"
 echo "Created Postgres user '${DB_NAME}user'"
 
