@@ -2,6 +2,7 @@ const db = require("../database/connection.js");
 
 
 function get(request, response) {
+    console.log("reached point before dbquery");
     db.query(`SELECT users.username, users.age, ice_cream_posts.base_flavour, ice_cream_posts.comment 
     FROM users
     INNER JOIN ice_cream_posts
