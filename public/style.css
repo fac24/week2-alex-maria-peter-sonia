@@ -3,6 +3,7 @@
   --clr-two: #a7c7e7;
   --clr-three: #c1e1c1;
   --clr-four: #f8c8dc;
+  --clr-lolly-stick: #d4a276;
 }
 
 body {
@@ -16,6 +17,19 @@ h1 {
   justify-content: center;
   text-align: center;
   flex-direction: column;
+}
+
+.ice-cream {
+  position: relative;
+  justify-content: center;
+}
+
+.lolly-stick {
+  position: relative;
+  width: 2.5rem;
+  height: 8.75rem;
+  border-radius: 1.25rem;
+  background-color: var(--clr-lolly-stick);
 }
 
 form {
