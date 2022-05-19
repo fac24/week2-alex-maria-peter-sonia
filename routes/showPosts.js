@@ -13,7 +13,7 @@ function get(request, response) {
         response.send(`<ul>${postList}</ul>`);
     })
     .catch((error) => {
-        console.error(error.status); 
+        console.error(error); 
         response.status(500).send("<h1>Problem loading page.</h1>");
     });
 }
