@@ -33,8 +33,12 @@ function get(request, response) {
     ${postsHTML}
   </body>
 </html>
-`);
-  });
+`)
+  })
+      .catch((error) => {
+        console.error(error); 
+        response.status(500).send("<h1>Problem loading page.</h1>");
+    });
 }
 
 module.exports = { get };
