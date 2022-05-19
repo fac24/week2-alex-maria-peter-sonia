@@ -1,0 +1,16 @@
+*/ made root for colour combination */ :root {
+  --text: #c3b1e1;
+  --clr-two: #a7c7e7;
+  --clr-three: #c1e1c1;
+  --clr-four: #f8c8dc;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--clr-three);
+  font-family: "Bungee Inline", cursive;
+}
+
+form {
+  color: red;
+}
