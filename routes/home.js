@@ -1,4 +1,4 @@
-const db = require("../database/connection.js").default;
+const db = require("../database/connection.js");
 
 function get(request, response) {
   const form = `
@@ -58,19 +58,25 @@ function get(request, response) {
 
 function post(request, response) {
   const insert_user = /*sql*/ `
-      INSERT INTO users(username, age, base_flavour, fandom) VALUES($1, $2, $3, $4)
+      INSERT INTO users(username, age, fandom) VALUES($1, $2, $3);
+      INSERT INTO ice_cream_posts(base_flavour, topping, comment) VALUES($4, $5, $6);
     `;
   const values = [
     request.body.username,
     request.body.age,
-    request.body.base_flavour,
     request.body.fandom,
+    request.body.base_flavour,
+    request.body.topping,
+    request.body.comment
   ];
 
   db.query(insert_user, values).then(() => {
-    response.redirect("/");
+    //Seems like things are stopping here....
+    console.log("query check");
+    response.redirect("/show-posts"); 
   });
 }
+
 
 // exporting for server.js
 module.exports = { get, post };
