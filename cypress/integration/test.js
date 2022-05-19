@@ -2,6 +2,11 @@
 //   cy.task("resetDb");
 // });
 
+it("example test", () => {
+  cy.visit("/");
+  cy.contains("Username");
+});
+
 // describe("list users", () => {
 //   it("displays a list of users", () => {
 //     cy.visit("/");
