@@ -56,24 +56,32 @@ function get(request, response) {
 //   return null;
 // }
 
+
+//INSERT INTO ice_cream_posts(base_flavour, topping, comment) VALUES(LAST_INSERT_ID(), $5, $6);
+
 function post(request, response) {
-  const insert_user = /*sql*/ `
-      INSERT INTO users(username, age, fandom) VALUES($1, $2, $3);
-      INSERT INTO ice_cream_posts(base_flavour, topping, comment) VALUES($4, $5, $6);
-    `;
+  // const insert_user = /*sql*/ `
+  //     INSERT INTO users(username, age, fandom) VALUES($1, $2, $3);
+  //   `;
   const values = [
     request.body.username,
     request.body.age,
     request.body.fandom,
-    request.body.base_flavour,
-    request.body.topping,
-    request.body.comment
+    // request.body.base_flavour,
+    // request.body.topping,
+    // request.body.comment
   ];
 
-  db.query(insert_user, values).then(() => {
-    //Seems like things are stopping here....
-    console.log("query check");
-    response.redirect("/show-posts"); 
+  
+  db.query(`INSERT INTO users(username, age, fandom) VALUES($1, $2, $3) RETURNING id`, [request.body.username, request.body.age, request.body.fandom]).then((newUser) => {
+    // console.log(newUser) will return everything that has changed in the database, returns an array of all the elems
+    const id = newUser.rows[0].id; 
+    return db.query(`INSERT INTO ice_cream_posts(user_id, base_flavour, topping, comment) VALUES($1, $2, $3, $4)`, [id, request.body.base_flavour, request.body.topping, request.body.comment]).then(() => {
+      response.redirect("/show-posts")
+    }).catch((err) => {
+      console.log(err);
+      response.status(500).send("<h1>Oops, something went wrong.</h1>")
+    })
   });
 }
 
