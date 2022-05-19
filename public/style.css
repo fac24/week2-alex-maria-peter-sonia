@@ -20,9 +20,19 @@ h1 {
   flex-direction: column;
 }
 
-.ice-cream {
-  position: relative;
+.ice-cream-container {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem;
+}
+
+.yum-yum-ice-cream {
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  /* display: inline-block; */
 }
 
 .lolly-stick {
@@ -59,9 +69,32 @@ h1 {
   height: 8.75rem;
   background-color: var(--clr-two);
   border-radius: 100% 100% 0 0;
-  top: -8.438rem;
-  left: -3.781rem;
+  top: 2.438rem;
+  left: 7.781rem;
+  margin-top: 2rem;
 }
+
+.bubblegum:before {
+  content: "";
+  position: absolute;
+  width: 23px;
+  border-radius: 20px;
+  box-shadow: 23px 5px #fffcf2, 46px -10px #583101, 69px -5px #fffcf2,
+    92px -5px #583101, 115px 5px #fffcf2, 138px 5px #583101;
+}
+
+.bubblegum:after {
+  content: "";
+  position: absolute;
+  border-right: 9px solid rgba(255, 255, 255, 0.5);
+  border-top: 9px solid rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 60px;
+  border-top-right-radius: 100%;
+  top: 10px;
+  left: 85px;
+}
+
 form {
   display: flex;
   flex-direction: column;
