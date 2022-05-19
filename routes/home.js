@@ -49,8 +49,8 @@ function get(request, response) {
         <h1>I-Scream</h1>
 
         <div class="yum-yum-ice-cream">
-             <div class="lolly-stick"></div>
-             <div class="bubblegum"></div>
+          <div class="lolly-stick"></div>
+          <div class="bubblegum"></div>
         </div>
 
   ${form}
