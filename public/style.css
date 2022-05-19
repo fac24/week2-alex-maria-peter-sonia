@@ -1,10 +1,11 @@
 :root {
-  --text: #c3b1e1;
+  --text: #543e7a;
   --clr-two: #a7c7e7;
   --clr-three: #c1e1c1;
   --clr-four: #f8c8dc;
   --clr-lolly-stick: #d4a276;
   --clr-white: #fffcf2;
+  --clr-yellow-heaven: #fdfd96;
 }
 
 body {
@@ -18,14 +19,54 @@ h1 {
   justify-content: center;
   text-align: center;
   flex-direction: column;
+  color: var(--text);
+  animation: rainbow-shadow 1.5s ease-in-out infinite;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  margin: 2rem;
+  padding-top: 5rem;
+}
+
+h1:hover {
+  animation-play-state: paused;
+}
+
+@keyframes rainbow-shadow {
+  0% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+  }
+
+  20% {
+    transform: translateY(-1em);
+    text-shadow: 0 0.125em 0 #0c2ffb, 0 0.25em 0 #2cfcfd, 0 -0.125em 0 #fb203b,
+      0 -0.25em 0 #fefc4b;
+  }
+
+  40% {
+    transform: translateY(0.5em);
+    text-shadow: 0 -0.0625em 0 #0c2ffb, 0 -0.125em 0 #2cfcfd,
+      0 0.0625em 0 #fb203b, 0 0.125em 0 #fefc4b;
+  }
+
+  60% {
+    transform: translateY(-0.25em);
+    text-shadow: 0 0.03125em 0 #0c2ffb, 0 0.0625em 0 #2cfcfd,
+      0 -0.03125em 0 #fb203b, 0 -0.0625em 0 #fefc4b;
+  }
+
+  80% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+  }
 }
 
 .ice-cream-container {
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8rem;
+  padding-top: 15rem;
 }
 
 .yum-yum-ice-cream {
@@ -33,7 +74,6 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* display: inline-block; */
 }
 
 .lolly-stick {
@@ -102,4 +142,40 @@ form {
   margin-left: auto;
   margin-right: auto;
   max-width: 20rem;
+  padding: 0.5%;
+  margin-bottom: 4rem;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px, rgba(240, 46, 170, 0.4) -5px 5px,
+    rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px,
+    rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+}
+
+#username {
+  color: var(--text);
+  background-color: var(--clr-three);
+}
+#age {
+  color: var(--text);
+  background-color: var(--clr-three);
+}
+#fandom {
+  color: var(--text);
+  background-color: var(--clr-three);
+}
+#base_flavour {
+  color: var(--text);
+  background-color: var(--clr-three);
+}
+#topping {
+  color: var(--text);
+  background-color: var(--clr-three);
+}
+#comment {
+  color: var(--text);
+  background-color: var(--clr-three);
+}
+.btn {
+  color: var(--text);
+  background-color: var(--clr-yellow-heaven);
 }
