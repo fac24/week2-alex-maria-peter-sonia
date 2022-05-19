@@ -4,6 +4,7 @@
   --clr-three: #c1e1c1;
   --clr-four: #f8c8dc;
   --clr-lolly-stick: #d4a276;
+  --clr-white: #fffcf2;
 }
 
 body {
@@ -32,6 +33,35 @@ h1 {
   background-color: var(--clr-lolly-stick);
 }
 
+.lolly-stick:before {
+  content: "";
+  position: absolute;
+  width: 9.375rem;
+  height: 12.5rem;
+  background-color: var(--clr-white);
+  border-radius: 6.25rem 6.25rem 0.625rem 0.625rem;
+  top: -8.125rem;
+  left: -3.438rem;
+}
+
+.lolly-stick:after {
+  position: absolute;
+  content: "";
+  width: 2.5rem;
+  height: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  top: 4.375rem;
+}
+
+.bubblegum {
+  position: absolute;
+  width: 10.063rem;
+  height: 8.75rem;
+  background-color: var(--clr-two);
+  border-radius: 100% 100% 0 0;
+  top: -8.438rem;
+  left: -3.781rem;
+}
 form {
   display: flex;
   flex-direction: column;
