@@ -1,4 +1,4 @@
-*/ made root for colour combination */ :root {
+:root {
   --text: #c3b1e1;
   --clr-two: #a7c7e7;
   --clr-three: #c1e1c1;
@@ -7,10 +7,21 @@
 
 body {
   box-sizing: border-box;
-  background-color: var(--clr-three);
-  font-family: "Bungee Inline", cursive;
+  background-color: var(--clr-four);
+  font-family: "Press Start 2P", cursive;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
 }
 
 form {
-  color: red;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 20rem;
 }
