@@ -2,7 +2,7 @@ const db = require("../database/connection.js").default;
 
 function get(request, response) {
   const form = `
-    <form method="POST" action="/add-posts">
+    <form method="POST" action="/show-posts">
       <label for="username">Username:</label>
       <input id="username" name="username" type="text" required />
         <br />
