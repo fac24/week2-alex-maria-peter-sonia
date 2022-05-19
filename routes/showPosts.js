@@ -12,7 +12,10 @@ function get(request, response) {
         </li>`).join("");
         response.send(`<ul>${postList}</ul>`);
     })
-    .catch(error => {console.error(error.status); <h1>Problem loading page</h1>});
+    .catch((error) => {
+        console.error(error.status); 
+        "<h1>Problem loading page</h1>"
+    });
 }
 
 module.exports = {get};
