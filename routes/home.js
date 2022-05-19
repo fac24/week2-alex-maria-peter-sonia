@@ -47,11 +47,12 @@ function get(request, response) {
   </head>
   <body>
         <h1>I-Scream</h1>
-
+    <section class="ice-cream-container">
         <div class="yum-yum-ice-cream">
           <div class="lolly-stick"></div>
           <div class="bubblegum"></div>
         </div>
+    </section>
 
   ${form}
   </body>
