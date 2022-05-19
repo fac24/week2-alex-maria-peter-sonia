@@ -1,3 +1,5 @@
+const db = require("../database/connection.js").default;
+
 function get(request, response) {
   const form = `
     <form method="POST" action="/add-posts">
@@ -12,7 +14,7 @@ function get(request, response) {
         <br />
       <label for="fandom">Fandom rating:</label>
       <input type="range" id="fandom" name="fandom" min="1" max="5" value="1">
-         <br />
+        <br />
       <label for="topping">Toppings:</label>
       <select id="topping" name="topping">
         <option value="sprinkles">Sprinkles</option>
@@ -23,10 +25,10 @@ function get(request, response) {
         <option value="marshmellow">Melted marshmellow</option>
         <option value="none">None</option>
       </select>
-         <br />
+        <br />
       <label for="comment">Comment:</label>
       <textarea id="comment" name="comment"></textarea>
-         <br />
+        <br />
       <button type="submit" class="btn">Submit</button>
     </form>
   `;
@@ -49,5 +51,26 @@ function get(request, response) {
   response.send(html);
 }
 
+// function post(req, res) {
+//   console.log(req.body);
+//   return null;
+// }
+
+function post(request, response) {
+  const insert_user = /*sql*/ `
+      INSERT INTO users(username, age, base_flavour, fandom) VALUES($1, $2, $3, $4)
+    `;
+  const values = [
+    request.body.username,
+    request.body.age,
+    request.body.base_flavour,
+    request.body.fandom,
+  ];
+
+  db.query(insert_user, values).then(() => {
+    response.redirect("/");
+  });
+}
+
 // exporting for server.js
-module.exports = { get };
+module.exports = { get, post };

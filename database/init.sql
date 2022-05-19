@@ -1,4 +1,4 @@
-BEGIN;
+BEGIN; 
 
 DROP TABLE IF EXISTS users, ice_cream_posts CASCADE;
 
@@ -28,7 +28,7 @@ INSERT INTO ice_cream_posts (user_id, base_flavour, topping, comment) VALUES
   (1, 'strawberry', 'sprinkles', 'Give me sprinkles or give me death'),
   (2, 'pistachio','hot fudge', 'pistachio is fine, I guess'),
   (3, 'caramel', 'melted marshmallow', 'Nothing better than a caramel ice cream after a hard day of coding.'),
-  (4, 'vanilla', 'none', 'Why are you all talking about ice cream? I came here for the crisps.' )
+  (4, 'vanilla', 'none', 'Why are you all talking about ice cream? I came here for the crisps.')
 ;
 
 COMMIT;
