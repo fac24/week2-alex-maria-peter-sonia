@@ -1,4 +1,11 @@
-# iScream
+# 🍦 iScream 🍨
+
+### Designed and Developed by:
+  - [Maria](https://github.com/mariaalouisaa): Scrum Facilitator
+  - [Alex](https://github.com/lascellesabercrombie): Devops
+  - [Sonia](https://github.com/sonianb): Quality Assurance
+  - [Peter](https://github.com/PJSalter): UX Lead
+    
 
 ## Summary
 
