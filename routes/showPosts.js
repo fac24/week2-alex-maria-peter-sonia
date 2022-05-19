@@ -13,13 +13,14 @@ function get(request, response) {
       (post) =>
         (postsHTML += `
         <div class="post-container">
-        <p>User: ${post.username}  <span>${post.fandom}⭐</span></p>
+        <p>User: ${post.username}  <span>⭐${post.fandom}</span></p>
         <p>Loves: ${post.base_flavour}</p>
         <p>Comment: ${post.comment}</p>
         </div>
         `)
     );
-    response.send(`<!DOCTYPE html>
+    response.send(`
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -30,7 +31,7 @@ function get(request, response) {
   </head>
   <body>
     ${postsHTML}
-      </body>
+  </body>
 </html>
 `);
   });
