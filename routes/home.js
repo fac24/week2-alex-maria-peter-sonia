@@ -74,12 +74,10 @@ function post(request, response) {
 
   
   db.query(`INSERT INTO users(username, age, fandom) VALUES($1, $2, $3) RETURNING id`, [request.body.username, request.body.age, request.body.fandom]).then((newUser) => {
-    // console.log(newUser) will return everything that has changed in the database, returns an array of all the elems
     const id = newUser.rows[0].id; 
     return db.query(`INSERT INTO ice_cream_posts(user_id, base_flavour, topping, comment) VALUES($1, $2, $3, $4)`, [id, request.body.base_flavour, request.body.topping, request.body.comment]).then(() => {
       response.redirect("/show-posts")
     }).catch((err) => {
-      console.log(err);
       response.status(500).send("<h1>Oops, something went wrong.</h1>")
     })
   });
