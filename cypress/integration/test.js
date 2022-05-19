@@ -18,5 +18,9 @@ describe('', () => {
     cy.contains("I hate pringles.");
   });
 
+  it("db has been reset", () => {
+    cy.visit("http://localhost:3000/show-posts");
+    cy.get(".post-container").should('have.length', 4);
+  });
 });
 
