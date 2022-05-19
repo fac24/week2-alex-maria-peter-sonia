@@ -1,4 +1,4 @@
-const db = require("../database/connection.js").default;
+const db = require("../database/connection.js");
 
 function get(request, response) {
   const form = `
@@ -56,21 +56,35 @@ function get(request, response) {
 //   return null;
 // }
 
+
+//INSERT INTO ice_cream_posts(base_flavour, topping, comment) VALUES(LAST_INSERT_ID(), $5, $6);
+
 function post(request, response) {
-  const insert_user = /*sql*/ `
-      INSERT INTO users(username, age, base_flavour, fandom) VALUES($1, $2, $3, $4)
-    `;
+  // const insert_user = /*sql*/ `
+  //     INSERT INTO users(username, age, fandom) VALUES($1, $2, $3);
+  //   `;
   const values = [
     request.body.username,
     request.body.age,
-    request.body.base_flavour,
     request.body.fandom,
+    // request.body.base_flavour,
+    // request.body.topping,
+    // request.body.comment
   ];
 
-  db.query(insert_user, values).then(() => {
-    response.redirect("/");
+  
+  db.query(`INSERT INTO users(username, age, fandom) VALUES($1, $2, $3) RETURNING id`, [request.body.username, request.body.age, request.body.fandom]).then((newUser) => {
+    // console.log(newUser) will return everything that has changed in the database, returns an array of all the elems
+    const id = newUser.rows[0].id; 
+    return db.query(`INSERT INTO ice_cream_posts(user_id, base_flavour, topping, comment) VALUES($1, $2, $3, $4)`, [id, request.body.base_flavour, request.body.topping, request.body.comment]).then(() => {
+      response.redirect("/show-posts")
+    }).catch((err) => {
+      console.log(err);
+      response.status(500).send("<h1>Oops, something went wrong.</h1>")
+    })
   });
 }
+
 
 // exporting for server.js
 module.exports = { get, post };

@@ -4,8 +4,13 @@ const showPosts = require("./routes/showPosts.js");
 
 const server = express();
 
+const bodyHandler = express.urlencoded({ extended: false });
+
+server.use(bodyHandler);
+
 server.get("/", home.get);
 server.get("/show-posts", showPosts.get);
+server.post("/show-posts", bodyHandler, home.post);
 
 const PORT = process.env.PORT || 3000;
 
