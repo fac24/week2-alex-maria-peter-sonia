@@ -9,24 +9,18 @@ function get(request, response) {
   ).then((result) => {
     let postsHTML = "";
     const posts = result.rows;
-    console.log(posts);
-    const postList = posts.map(
+    posts.map(
       (post) =>
         (postsHTML += `
         <div class="post-container">
-        <p>Username: ${post.username}  <span>${post.fandom}⭐</span></p>
+        <p>User: ${post.username}  <span>${post.fandom}⭐</span></p>
         <p>Loves: ${post.base_flavour}</p>
         <p>Comment: ${post.comment}</p>
         </div>
         `)
     );
-    // `<li class="user-post">${post.username}, ${post.age}!
-    // </li>`).join("");
     response.send(`${postsHTML}`);
   });
 }
 
 module.exports = { get };
-
-// likes ${post.base_flavour} ice cream.
-//         ${post.username} said: ${post.comment}
