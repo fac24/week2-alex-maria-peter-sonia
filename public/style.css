@@ -11,10 +11,10 @@
 body {
   box-sizing: border-box;
   background-color: var(--clr-four);
-  font-family: "Press Start 2P", cursive;
 }
 
 h1 {
+  font-family: "Press Start 2P", cursive;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -181,7 +181,6 @@ form {
 }
 
 a {
-  font-size: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
