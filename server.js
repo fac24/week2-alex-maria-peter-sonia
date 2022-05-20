@@ -4,6 +4,10 @@ const showPosts = require("./routes/showPosts.js");
 
 const server = express();
 
+const staticHandler = express.static("public");
+
+server.use(staticHandler);
+
 const bodyHandler = express.urlencoded({ extended: false });
 
 server.use(bodyHandler);
