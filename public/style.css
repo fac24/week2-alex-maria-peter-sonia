@@ -179,3 +179,11 @@ form {
   color: var(--text);
   background-color: var(--clr-yellow-heaven);
 }
+
+a {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

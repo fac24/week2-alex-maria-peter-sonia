@@ -47,6 +47,7 @@ function get(request, response) {
   </head>
   <body>
         <h1>I-Scream</h1>
+        <a href="/show-posts">Click here to view all posts!</a>
         <section class="ice-cream-container">
         <div class="yum-yum-ice-cream"></div>
         <div class="lolly-stick"></div>
@@ -80,13 +81,27 @@ function post(request, response) {
     // request.body.comment
   ];
 
- db.query(`INSERT INTO users(username, age, fandom) VALUES($1, $2, $3) RETURNING id`, [request.body.username, request.body.age, request.body.fandom]).then((newUser) => {
-    const id = newUser.rows[0].id; 
-    return db.query(`INSERT INTO ice_cream_posts(user_id, base_flavour, topping, comment) VALUES($1, $2, $3, $4)`, [id, request.body.base_flavour, request.body.topping, request.body.comment]).then(() => {
-      response.redirect("/show-posts")
-    }).catch((err) => {
-      response.status(500).send("<h1>Oops, something went wrong.</h1>")
-    })
+  db.query(
+    `INSERT INTO users(username, age, fandom) VALUES($1, $2, $3) RETURNING id`,
+    [request.body.username, request.body.age, request.body.fandom]
+  ).then((newUser) => {
+    const id = newUser.rows[0].id;
+    return db
+      .query(
+        `INSERT INTO ice_cream_posts(user_id, base_flavour, topping, comment) VALUES($1, $2, $3, $4)`,
+        [
+          id,
+          request.body.base_flavour,
+          request.body.topping,
+          request.body.comment,
+        ]
+      )
+      .then(() => {
+        response.redirect("/show-posts");
+      })
+      .catch((err) => {
+        response.status(500).send("<h1>Oops, something went wrong.</h1>");
+      });
   });
 }
 
