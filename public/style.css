@@ -11,10 +11,12 @@
 body {
   box-sizing: border-box;
   background-color: var(--clr-four);
-  font-family: "Press Start 2P", cursive;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
 }
 
 h1 {
+  font-family: "Press Start 2P", cursive;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -25,7 +27,7 @@ h1 {
   font-weight: 900;
   line-height: 1;
   margin: 2rem;
-  padding-top: 5rem;
+  padding-top: 1rem;
 }
 
 h1:hover {
@@ -66,7 +68,7 @@ h1:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15rem;
+  padding-top: 12rem;
 }
 
 .yum-yum-ice-cream {
@@ -112,7 +114,6 @@ h1:hover {
   border-radius: 100% 100% 0 0;
   top: -19rem;
   left: 0rem;
-  margin-top: 2rem;
 }
 
 .bubblegum:before {
@@ -141,6 +142,7 @@ form {
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  margin-top: -6rem;
   max-width: 20rem;
   padding: 0.5%;
   margin-bottom: 4rem;
@@ -178,4 +180,20 @@ form {
 .btn {
   color: var(--text);
   background-color: var(--clr-yellow-heaven);
+}
+
+a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-container {
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px, rgba(240, 46, 170, 0.4) -5px 5px,
+    rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px,
+    rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+  margin: 1.5em;
 }
