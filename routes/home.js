@@ -3,7 +3,7 @@ const db = require("../database/connection.js");
 function get(request, response) {
   const form = `
     <form method="POST" action="/show-posts">
-      <label for="username">Username:</label>
+      <label for="username">Username: <span class="smaller">(max 20 chars)</span></label>
       <input id="username" name="username" type="text" required />
         <br />
       <label for="age">Age:</label>
