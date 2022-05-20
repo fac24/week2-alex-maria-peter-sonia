@@ -1,5 +1,14 @@
 const db = require("../database/connection.js");
 
+//function to generate fandom rating
+const fandom = (num) => {
+  let fandomRating = "";
+  for (let i = 0; i < num; i++) {
+    fandomRating += "🍧";
+  }
+  return fandomRating;
+};
+
 function get(request, response) {
   db.query(
     `SELECT users.username, users.age, users.fandom, ice_cream_posts.base_flavour, ice_cream_posts.comment 
@@ -14,12 +23,15 @@ function get(request, response) {
         (post) =>
           (postsHTML += `
         <div class="post-container">
-        <p>User: ${post.username}  <span>⭐${post.fandom}</span></p>
+        <p>User: ${post.username}  <span>${fandom(post.fandom)}</p>
         <p>Loves: ${post.base_flavour}</p>
         <p>Comment: ${post.comment}</p>
         </div>
         `)
       );
+      return postsHTML;
+    })
+    .then((postsHTML) => {
       response.send(`
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +54,7 @@ function get(request, response) {
 </html>
 `);
     })
+    //catch at end of chain to catch all!
     .catch((error) => {
       console.error(error);
       response.status(500).send("<h1>Problem loading page.</h1>");
