@@ -3,7 +3,7 @@ const db = require("../database/connection.js");
 function get(request, response) {
   const form = `
     <form method="POST" action="/show-posts">
-      <label for="username">Username:</label>
+      <label for="username">Username: <span class="smaller">(max 20 chars)</span></label>
       <input id="username" name="username" type="text" required />
         <br />
       <label for="age">Age:</label>
@@ -58,51 +58,39 @@ function get(request, response) {
 </html>
 `;
 
-  response.send(html);
+  response.send(html).catch((error) => {
+    console.error(error);
+    response.status(500).send("<h1>Problem loading page.</h1>");
+  });
 }
 
-// function post(req, res) {
-//   console.log(req.body);
-//   return null;
-// }
-
-//INSERT INTO ice_cream_posts(base_flavour, topping, comment) VALUES(LAST_INSERT_ID(), $5, $6);
-
 function post(request, response) {
-  // const insert_user = /*sql*/ `
-  //     INSERT INTO users(username, age, fandom) VALUES($1, $2, $3);
-  //   `;
-  const values = [
-    request.body.username,
-    request.body.age,
-    request.body.fandom,
-    // request.body.base_flavour,
-    // request.body.topping,
-    // request.body.comment
-  ];
-
-  db.query(
-    `INSERT INTO users(username, age, fandom) VALUES($1, $2, $3) RETURNING id`,
-    [request.body.username, request.body.age, request.body.fandom]
-  ).then((newUser) => {
-    const id = newUser.rows[0].id;
-    return db
-      .query(
-        `INSERT INTO ice_cream_posts(user_id, base_flavour, topping, comment) VALUES($1, $2, $3, $4)`,
-        [
-          id,
-          request.body.base_flavour,
-          request.body.topping,
-          request.body.comment,
-        ]
-      )
-      .then(() => {
-        response.redirect("/show-posts");
-      })
-      .catch((err) => {
-        response.status(500).send("<h1>Oops, something went wrong.</h1>");
-      });
-  });
+  //stop the user from breaking the server if username is too long
+  if (request.body.username.length <= 20) {
+    db.query(
+      `INSERT INTO users(username, age, fandom) VALUES($1, $2, $3) RETURNING id`,
+      [request.body.username, request.body.age, request.body.fandom]
+    ).then((newUser) => {
+      const id = newUser.rows[0].id;
+      return db
+        .query(
+          `INSERT INTO ice_cream_posts(user_id, base_flavour, topping, comment) VALUES($1, $2, $3, $4)`,
+          [
+            id,
+            request.body.base_flavour,
+            request.body.topping,
+            request.body.comment,
+          ]
+        )
+        .then(() => {
+          response.redirect("/show-posts");
+        })
+        .catch((err) => {
+          response.status(500).send("<h1>Oops, something went wrong.</h1>");
+        });
+    });
+  }
+  //maybe good to send something to promt the user that their input was too long as an else statment
 }
 
 // exporting for server.js
