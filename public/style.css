@@ -27,7 +27,7 @@ h1 {
   font-weight: 900;
   line-height: 1;
   margin: 2rem;
-  padding-top: 5rem;
+  padding-top: 1rem;
 }
 
 h1:hover {
@@ -68,7 +68,7 @@ h1:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15rem;
+  padding-top: 12rem;
 }
 
 .yum-yum-ice-cream {
@@ -114,7 +114,6 @@ h1:hover {
   border-radius: 100% 100% 0 0;
   top: -19rem;
   left: 0rem;
-  margin-top: 2rem;
 }
 
 .bubblegum:before {
@@ -143,6 +142,7 @@ form {
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  margin-top: -6rem;
   max-width: 20rem;
   padding: 0.5%;
   margin-bottom: 4rem;
