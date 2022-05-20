@@ -21,13 +21,13 @@ function get(request, response) {
       const posts = result.rows;
       posts.map(
         (post) =>
-          (postsHTML += `
+          (postsHTML = `
         <div class="post-container">
         <p>User: ${post.username}  <span>${fandom(post.fandom)}</p>
         <p>Loves: ${post.base_flavour}</p>
         <p>Comment: ${post.comment}</p>
         </div>
-        `)
+        `.concat(postsHTML))
       );
       return postsHTML;
     })
