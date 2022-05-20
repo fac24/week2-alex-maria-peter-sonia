@@ -27,7 +27,8 @@ function get(request, response) {
         <p>Loves: ${post.base_flavour}</p>
         <p>Comment: ${post.comment}</p>
         </div>
-        `.concat(postsHTML))
+  
+        `.concat(postsHTML)) //so posts to at top of list not bottom
       );
       return postsHTML;
     })
